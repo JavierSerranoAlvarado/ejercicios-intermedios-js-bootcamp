@@ -14,9 +14,12 @@ $btnDog.addEventListener('click', () => {
 /* const API = 'https://rickandmortyapi.com/api/character/'
 const rickAndMorty = async (url_api) =>{
     try{
-    const dato1 = await fetch(url_api).then(data => data.json());
-    const dato2 = await fetch(`${url_api}${dato1.results[0].id}`).then(data => data.json());
-    const dato3 = await fetch(`${dato2.origin.url}`).then(data => data.json());
+    const resp1 = await fetch(url_api);
+    const dato1 = await resp1.json();
+    const resp2 = await fetch(`${url_api}${dato1.results[0].id}`)
+    const dato2 = await resp2.json();
+    const resp3 = await fetch(`${dato2.origin.url}`)
+    const dato3 = await resp3.json();
 
     console.log(`Caracteres disponibles: ${dato1.info.count}`);
     console.log(`Caracter seleccionado: ${dato2.name}`);
